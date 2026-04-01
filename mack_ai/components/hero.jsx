@@ -61,11 +61,12 @@ const HeroSection = () => {
           <div ref={imageRef} className="hero-image ">
             <Image
               src={"/banner.jpeg"}
-              width={1280}
+              width={1480}
               height={720}
               alt="Dashboard Banner"
-              className="rouned-lg shadow-2xl border mx-auto w-full h-auto"
+              className="rouned-lg shadow-2xl border mx-auto"
               priority
+              
             />
           </div>
         </div>

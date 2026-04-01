@@ -1,7 +1,8 @@
+
 import React from "react";
 import {
   SignInButton,
-  SignUpButton,
+
   SignedIn,
   SignedOut,
   UserButton,
@@ -14,8 +15,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -26,8 +25,10 @@ import {
   PenBox,
   StarsIcon,
 } from "lucide-react";
+import { checkUser } from "@/lib/checkUser";
 
-const header = () => {
+const header = async() => {
+  await checkUser();
   return (
     <header className="fixed top-0 w-full border-b bg-background/70 backdrop-blur-lg z-50">
       <nav className="h-16 flex items-center justify-between px-4">

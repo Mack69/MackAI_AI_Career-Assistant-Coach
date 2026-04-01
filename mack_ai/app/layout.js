@@ -1,9 +1,10 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from '@clerk/themes'
+import { dark } from "@clerk/themes";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,9 +33,14 @@ export default function RootLayout({ children }) {
             <Header />
             <main className="min-h-screen">{children}</main>
 
-            <footer className="bg-muted/30 py-12">
-              <div className="container mx-auto text-center  text-gray-300">
-                <p>Made with Love Mack69 </p>
+            <footer className="bg-muted/60 py-15 border-t">
+              <div className="container mx-auto text-center">
+                <p className="text-muted-foreground">
+                  Made with <span className="text-red-500">❤️</span> by Mack69
+                </p>
+                <p className="text-sm text-muted-foreground/70 mt-3">
+                  © {new Date().getFullYear()} MackAI . All rights reserved.
+                </p>
               </div>
             </footer>
           </ThemeProvider>
@@ -43,5 +49,3 @@ export default function RootLayout({ children }) {
     </ClerkProvider>
   );
 }
-
- 
