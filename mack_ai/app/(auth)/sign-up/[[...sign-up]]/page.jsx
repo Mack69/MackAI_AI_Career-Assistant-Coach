@@ -3,7 +3,7 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <div className='flex justify-center pt-30'>< SignUp/></div>
+    <div className='flex justify-center pt-30'><SignUp/></div>
     
   )
 }

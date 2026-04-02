@@ -21,7 +21,7 @@ model User {
   industry  String?    // Combined industry and sub industry field
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  industryInsights IndustryInsights? @relation(fields: [industry], references: [industry])
+  industryInsight IndustryInsights? @relation(fields: [industry], references: [industry])
   //Profile fields
   bio       String?
   experience Int?          //Yrs of Experience
