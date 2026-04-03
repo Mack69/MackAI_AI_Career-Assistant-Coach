@@ -179,3 +179,14 @@
 .gradient{
   background: linear-gradient(to bottom, #9ca3af, #e5e7eb, #4b5563);
 }
+
+ .gradient-title {
+    background: linear-gradient(to bottom, #9ca3af, #e5e7eb, #4b5563);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
+  }

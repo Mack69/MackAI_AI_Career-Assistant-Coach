@@ -1,6 +1,7 @@
 "use server";
 import { db } from "@/lib/prisma";
 import { auth, clerkClient } from "@clerk/nextjs/server";
+import { generateAIInsights } from "./dashboard"; 
 
 // export async function updateUser(data) {
 //   const { userId } = await auth();
@@ -97,22 +98,17 @@ export async function updateUser(data) {
 
   try {
     const result = await db.$transaction(async (txn) => {
-      // Use "IndustryInsights" (plural, matches your schema)
       let industryInsight = await txn.IndustryInsights.findUnique({
         where: { industry: data.industry },
       });
 
       if (!industryInsight) {
-        industryInsight = await txn.IndustryInsights.create({
+       const insights = await generateAIInsights(data.industry);
+
+        industryInsight  = await db.IndustryInsights.create({
           data: {
             industry: data.industry,
-            salaryRange: [],
-            growthRate: 0,
-            demandLevel: "MEDIUM",
-            topSkills: [],
-            marketOutlook: "NEUTRAL",
-            keyTrends: [],
-            recommendedSkills: [],
+            ...insights,
             nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
           },
         });
@@ -125,7 +121,9 @@ export async function updateUser(data) {
           industry: data.industry,
           experience: parseInt(data.experience) || 0,
           bio: data.bio,
-          skills: Array.isArray(data.skills) ? data.skills : data.skills.split(',').map(s => s.trim()),
+          skills: Array.isArray(data.skills)
+            ? data.skills
+            : data.skills.split(",").map((s) => s.trim()),
         },
       });
 
