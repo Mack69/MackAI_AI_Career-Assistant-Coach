@@ -1,9 +1,9 @@
-import { Chilanka } from 'next/font/google'
-import React, { Children } from 'react'
 
-const Authlayout = ({Children}) => {
+import React from 'react'
+
+const Authlayout = ({children}) => {
   return (
-    <div className='flex justify-center pt-40'>{Children}</div>
+    <div className='flex justify-center pt-40'>{children}</div>
   )
 }
 
