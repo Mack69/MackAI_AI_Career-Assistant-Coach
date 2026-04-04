@@ -50,9 +50,9 @@ const HeroSection = () => {
               Get Started
             </Button>
           </Link>
-          <Link href="/dashboard">
+          <Link href="https://github.com/Mack69/MackAI_AI_Career-Assistant-Coach">
             <Button size="lg" className="px-8.5" variant="outline">
-              Get Started
+              Github Repo
             </Button>
           </Link>
         </div>

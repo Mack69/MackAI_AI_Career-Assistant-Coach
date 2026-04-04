@@ -1,4 +1,3 @@
-
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -9,6 +8,8 @@ import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata = {
@@ -34,7 +35,7 @@ export default function RootLayout({ children }) {
             <Header />
             <main className="min-h-screen">{children}</main>
 
-            <Toaster richColors/>
+            <Toaster richColors />
 
             <footer className="bg-muted/60 py-15 border-t">
               <div className="container mx-auto text-center">
